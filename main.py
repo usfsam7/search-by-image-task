@@ -15,7 +15,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # 1. Load a pre-trained CNN model and remove the classification head
 weights = ResNet50_Weights.DEFAULT
 model = resnet50(weights=weights)
-model = torch.nn.Sequential(*(list(model.children())[:-1]))  # Remove last layer (fc)
+model = torch.nn.Sequential(*(list(model.children())[:-1]))  
 model.eval()
 model.to(device)
 
